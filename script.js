@@ -24,3 +24,6 @@ function verificarSesion() {
         tituloMenu.textContent = `Menú (${rolGuardado})`;
     }
 }
+function servicios() {
+window.location.href = 'Servicios.html';
+}
