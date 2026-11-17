@@ -7,54 +7,67 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <style>
-        body {
-            background-color: #1a1d20;
-            color: #e0e0e0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+<style>
+    .titulo-Hacer_letras_oscuras {
+        color: black;
+     }
+.perfil {
+        font-size: 1.2rem;
+        color:black;
+    }
+    .boton-operador {
+        background-color: #0056b3;
+        color: white;
+    }
 
-        .tarjeta-acceso {
-            background-color: #24282c;
-            border: 1px solid #343a40;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 360px;
-        }
+    .boton-operador:hover {
+        background-color: blue;
+        color: black;
+    }
 
-        .boton-operador {
-            background-color: #0000FF;
-            border: none;
-            font-weight: 500;
-        }
+    .boton-usuario {
+       background-color: #0056b3;
+        color: white ;
+    }
 
-        .boton-operador:hover {
-            background-color: #00008B;
-        }
-    </style>
+    .boton-usuario:hover {
+        background-color: blue;
+        color: black;
+    }
+
+
+</style>
+    
 </head>
 <body>
 
-    <div class="tarjeta-acceso p-4 shadow">
-        <div class="text-center mb-4">
-            <h1 class="h4 fw-bold text-light mb-1">Entregas Planetarias</h1>
-            <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">
-                Selección de Perfil
-            </span>
-        </div>
+    <div class="container-fluid vh-100">
+    <div class="row h-100">
+        
+        <div class="col-4 bg-white d-flex flex-column justify-content-start pt-5 px-5">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZH_SmBZkOAAa4wy6EhPwFWz0WEU5J71QUyYoun4Uxtw&s=10" alt="Logo" width="160" class="mb-4">
+            
+            <h2 class="fw-bold titulo-Hacer_letras_oscuras">Entregas Planetarias</h2>
+            <p class="perfil">Selecciona tu perfil para ingresar</p>
 
-        <div class="d-grid gap-2">
-            <button class="btn boton-operador text-white py-2" onclick="iniciarSesion('Operador')">
+            <button class="btn boton-operador w-100 mb-2" onclick="iniciarSesion('Operador')">
                 Ingresar como Operador
             </button>
-            <button class="btn btn-outline-primary py-2" onclick="iniciarSesion('Usuario General')">
+            <button class="btn boton-usuario w-100" onclick="iniciarSesion('Usuario General')">
                 Ingresar como Usuario
             </button>
+
+
+
+            
         </div>
+
+        <div class="col-8 p-0">
+            <img src="https://img.magnific.com/foto-gratis/vista-cielo-estrellado-nocturno-paisaje-naturaleza-montanas_23-2151614762.jpg?semt=ais_hybrid&w=740&q=80" alt="Fondo" class="w-100 h-100 foto-derecha">
+        </div>
+
     </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
