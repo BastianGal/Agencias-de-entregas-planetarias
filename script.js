@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function iniciarSesion(rol) {
     localStorage.setItem('usuarioRol', rol);
-    window.location.href = 'menu.html';
+    window.location.href = 'Menu.html';
 }
 
 function verificarSesion() {
