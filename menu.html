@@ -10,43 +10,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        body 
-        {
+        body {
             background-color: #1a1a1a;
             color: white;
             margin: 0;
             min-height: 100vh;
         }
 
-        nav 
-        {
+        nav {
             background-color: #333;
             padding: 20px;
         }
 
-        .navbar-brand  
-        {
+        .navbar-brand {
             font-weight: bold;
         }
 
-        .nav-link 
-        {
+        .nav-link {
             color: white;
             margin: 0 10px;
         }
 
-        .nav-link:hover 
-        {
+        .nav-link:hover {
             color: #80bfff;
-        }   
-
-        .navbar-brand 
-        {
-            font-weight: bold;
         }
 
-        .contenedor-menu 
-        {
+        .contenedor-menu {
             min-height: 75vh;
             display: flex;
             flex-direction: column;
@@ -56,21 +45,11 @@
             padding: 30px 15px;
         }
 
-        .boton-servicios {
-            background-color: #333;
-            color: white;
-            border: 1px solid #666;
-            width: 100%;
-            max-width: 300px;
-            min-height: 180px;
-            font-size: 28px;
-            font-weight: bold;
-            border-radius: 12px;
-        }
-
-        .boton-servicios:hover {
-            background-color: #2456d8;
-            color: white;
+        .rol-usuario {
+            color: #aaa;
+            font-size: 13px;
+            margin-top: -5px;
+            margin-bottom: 0;
         }
     </style>
 
@@ -78,50 +57,50 @@
 
 <body>
 
-    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark px-3">
 
-<!-- Barra de navegación -->
+        <div class="container-fluid">
 
-<nav class="navbar navbar-expand-lg navbar-dark px-3">
+            <div>
+                <a class="navbar-brand" href="Menu.html">
+                    Agencia de Entregas Planetarias
+                </a>
 
-    <div class="container-fluid">
+                <p id="texto-nav-usuario" class="rol-usuario">
+                    Rol: Sin sesión
+                </p>
+            </div>
 
-        <a class="navbar-brand" href="Menu.html">
-            Agencia de Entregas Planetarias
-        </a>
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuNavegacion"
+                aria-controls="menuNavegacion"
+                aria-expanded="false"
+                aria-label="Abrir menú de navegación">
 
-        <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menuNavegacion"
-            aria-controls="menuNavegacion"
-            aria-expanded="false"
-            aria-label="Abrir menú de navegación">
+                <span class="navbar-toggler-icon"></span>
 
-            <span class="navbar-toggler-icon"></span>
+            </button>
 
-        </button>
+            <div class="collapse navbar-collapse" id="menuNavegacion">
 
-        <div class="collapse navbar-collapse" id="menuNavegacion">
+                <div class="navbar-nav ms-auto text-center">
 
-            <div class="navbar-nav ms-auto text-center">
+                    <a class="nav-link" href="Menu.html">Inicio</a>
 
-                <a class="nav-link" href="Menu.html">Inicio</a>
+                    <a class="nav-link" href="Catalogo.html">Catálogo</a>
 
-                <a class="nav-link" href="Catalogo.html">Catálogo</a>
+                    <a class="nav-link" href="Servicios.html">Servicios</a>
 
-                <a class="nav-link" href="Servicios.html">Servicios</a>
+                    <a class="nav-link" href="Usuarios.html">Usuarios</a>
 
-                <a class="nav-link" href="Usuarios.html">Usuarios</a>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-
-</nav>
-
-    <!-- Contenido principal -->
+    </nav>
 
     <main class="contenedor-menu">
 
@@ -134,40 +113,28 @@
             Selecciona una opción para continuar.
         </p>
 
-        <p id="texto-nav-usuario" class="text-secondary mb-4">
-            Rol: Sin sesión
+    </main>
+
+    <footer style="background-color: #222; color: white; text-align: center; padding: 25px 15px; margin-top: 50px; border-top: 2px solid #444;">
+
+        <h5>Agencias de Entregas Planetarias</h5>
+
+        <p>Conectando planetas, entregando soluciones.</p>
+
+        <p style="margin-bottom: 5px;">
+            Servicios de transporte y entregas interplanetarias.
         </p>
 
-        <button id="btn-servicios"
-            type="button"
-            class="btn boton-servicios"
-            onclick="servicios()">
+        <p style="color: #aaa; font-size: 14px; margin-bottom: 0;">
+            © 2026 Agencias de Entregas Planetarias. Todos los derechos reservados.
+        </p>
 
-            Consultar Servicios
-
-        </button>
-
-    </main>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="script.js"></script>
 
-    <footer style="background-color: #222; color: white; text-align: center; padding: 25px 15px; margin-top: 50px; border-top: 2px solid #444;">
-
-    <h5>Agencias de Entregas Planetarias</h5>
-
-    <p>Conectando planetas, entregando soluciones.</p>
-
-    <p style="margin-bottom: 5px;">
-        Servicios de transporte y entregas interplanetarias.
-    </p>
-
-    <p style="color: #aaa; font-size: 14px; margin-bottom: 0;">
-        © 2026 Agencias de Entregas Planetarias. Todos los derechos reservados.
-    </p>
-
-</footer>
 </body>
 
 </html>
