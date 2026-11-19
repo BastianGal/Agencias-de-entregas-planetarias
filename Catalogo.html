@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Catalogo De Agencias de Entregas Planetarias</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body 
+        {
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        nav 
+        {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        .navbar-brand 
+        {
+            font-weight: bold;
+        }
+
+        .nav-link 
+        {
+            color: white;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover 
+        {
+            color: #80bfff;
+        }   
+                     
+        .navbar-brand 
+        {
+            font-weight: bold;
+        }
+
+        nav a 
+        {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .contenedor 
+        {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .tarjeta 
+        {
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .icono 
+        {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 
+        {
+            color: #80bfff;
+        }
+
+        .precio 
+        {
+            font-size: 22px;
+            font-weight: bold;
+            color: #70db93;
+        }
+
+        .btn-seleccionar 
+        {
+            background-color: #0000cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-seleccionar:hover 
+        {
+            background-color: #00008b;
+            color: white;
+        }
+
+        select 
+        {
+            max-width: 300px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark px-3">
+
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="Menu.html">
+            Agencia de Entregas Planetarias
+        </a>
+
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuNavegacion"
+            aria-controls="menuNavegacion"
+            aria-expanded="false"
+            aria-label="Abrir menú de navegación">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuNavegacion">
+
+            <div class="navbar-nav ms-auto text-center">
+
+                <a class="nav-link" href="Menu.html">Inicio</a>
+
+                <a class="nav-link" href="Catalogo.html">Catálogo</a>
+
+                <a class="nav-link" href="Servicios.html">Servicios</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+    <div class="contenedor">
+
+        <h1 class="text-center mb-3">Agencias de Entregas Planetarias</h1>
+
+        <p class="text-center text-secondary">
+            Conoce nuestras cápsulas y selecciona el servicio que mejor se adapte a tu encargo.
+        </p>
+
+        <div class="text-center">
+            <label for="filtro" class="form-label">Filtrar por tipo de envío:</label>
+
+            <select id="filtro" class="form-select" onchange="filtrarServicios()">
+                <option value="Todos">Todos los servicios</option>
+                <option value="Normal">Normal</option>
+                <option value="Rápido">Rápido</option>
+                <option value="Emergencia">Emergencia</option>
+            </select>
+        </div>
+
+        <div class="row g-4 mt-3" id="catalogo">
+
+            <div class="col-12 col-md-6 col-lg-4 servicio" data-tipo="Normal">
+                <div class="tarjeta">
+                    <div class="icono"></div>
+                    <h3>Cápsula Normal</h3>
+
+                    <p>Ideal para entregas que no requieren rapidez inmediata.</p>
+
+                    <p><strong>Tipo:</strong> Normal</p>
+                    <p><strong>Capacidad:</strong> Hasta 10 kg</p>
+                    <p><strong>Carga:</strong> General y no frágil</p>
+
+                    <p class="precio">$10.000</p>
+
+                    <button class="btn-seleccionar"
+                        onclick="seleccionarServicio('Normal')">
+                        Seleccionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 servicio" data-tipo="Rápido">
+                <div class="tarjeta">
+                    <div class="icono"></div>
+                    <h3>Cápsula Rápida</h3>
+
+                    <p>Para entregas que necesitan llegar en menos tiempo.</p>
+
+                    <p><strong>Tipo:</strong> Rápido</p>
+                    <p><strong>Capacidad:</strong> Hasta 20 kg</p>
+                    <p><strong>Carga:</strong> General y frágil</p>
+
+                    <p class="precio">$20.000</p>
+
+                    <button class="btn-seleccionar"
+                        onclick="seleccionarServicio('Rápido')">
+                        Seleccionar
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 servicio" data-tipo="Emergencia">
+                <div class="tarjeta">
+                    <div class="icono"></div>
+                    <h3>Cápsula de Emergencia</h3>
+
+                    <p>Diseñada para encargos urgentes y prioritarios.</p>
+
+                    <p><strong>Tipo:</strong> Emergencia</p>
+                    <p><strong>Capacidad:</strong> Hasta 30 kg</p>
+                    <p><strong>Carga:</strong> General y frágil</p>
+
+                    <p class="precio">$35.000</p>
+
+                    <button class="btn-seleccionar"
+                        onclick="seleccionarServicio('Emergencia')">
+                        Seleccionar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="Menu.html" class="btn btn-outline-light">
+                Volver al menú
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        function filtrarServicios() {
+            let filtro = document.getElementById("filtro").value;
+
+            let servicios = document.getElementsByClassName("servicio");
+
+            for (let i = 0; i < servicios.length; i++) {
+                let tipo = servicios[i].getAttribute("data-tipo");
+
+                if (filtro == "Todos" || filtro == tipo) {
+                    servicios[i].style.display = "block";
+                } else {
+                    servicios[i].style.display = "none";
+                }
+            }
+        }
+
+        function seleccionarServicio(tipo) {
+            localStorage.setItem("tipoEnvioSeleccionado", tipo);
+
+            window.location.href = "Servicios.html";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
