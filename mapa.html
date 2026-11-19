@@ -115,7 +115,7 @@
         <button id="btn-aceptar" type="button">Aceptar</button><br>
         <p id="temporizador">El paquete llegara en 12 minutos</p>
     </div>
-
+<script src="script.js"></script>
 <script>
     let minutosSeleccionados = 12;
     let intervalo = null;
@@ -135,6 +135,7 @@
 
     document.getElementById('btn-aceptar').addEventListener('click', () => {
         if (enviado) return;
+        if (!verificarConfirmacionMapa()) return;
         enviado = true;
         document.getElementById('btn-aceptar').disabled = true;
 

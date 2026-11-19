@@ -89,28 +89,7 @@
 
     </div>
 
-    <script>
-
-        function confirmarEnvio() {
-
-            let envio = document.getElementById("tipoEnvio").value;
-
-            let contenido = document.getElementById("contenido").value;
-
-            if (envio == "" || contenido == "") {
-
-                alert("Debe seleccionar el tipo de envío y el contenido.");
-
-            } else {
-
-                document.getElementById("resultado").innerHTML =
-                    "<h3>Encargo confirmado</h3>" +
-                    "<p>Tipo de envío: " + envio + "</p>" +
-                    "<p>Tipo de contenido: " + contenido + "</p>";
-            }
-        }
-
-    </script>
+ <script src="script.js"></script>
 
 </body>
 </html>
