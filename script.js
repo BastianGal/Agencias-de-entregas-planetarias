@@ -34,7 +34,7 @@ function confirmarEnvio() {
         alert("Debe seleccionar el tipo de envío y el contenido.");
     } else {
         localStorage.setItem('tipoContenido', contenido);
-        window.location.href = 'mapa.html';
+        window.location.href = 'Mapa.html';
     }
 }
 
