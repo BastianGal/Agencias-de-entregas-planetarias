@@ -1,45 +1,81 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Seleccion de destino</title>
+
     <style>
-        body { margin: 0; background: #1a1a1a; font-family: sans-serif; }
-        .contenedor-pantalla 
-        { display: flex;
-         justify-content: center;
-          align-items: center;
-           min-height: 100vh;
-        }
-        .borde-mapa 
-        { 
-        position: relative;
-        width: 80%;
-        max-width: 600px;
-        border: 2px solid #0dcaf0;
-        }
-        .borde-mapa 
-        img 
-        { width: 100%;
-        height: auto;
-        display: block;
+        body {
+            margin: 0;
+            background: #1a1a1a;
+            font-family: sans-serif;
+            color: white;
         }
 
-        .punto 
-        {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        width: 18px; height: 18px;
-        border-radius: 50%;
-        background: #0dcaf0;
-        border: 2px solid #fff;
-        padding: 0;
-        cursor: pointer;
+        nav {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
         }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .contenedor-resumen {
+            text-align: center;
+            margin: 25px auto;
+            padding: 15px;
+        }
+
+        .contenedor-pantalla {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+        }
+
+        .borde-mapa {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            border: 2px solid #0dcaf0;
+        }
+
+        .borde-mapa img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .punto {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #0dcaf0;
+            border: 2px solid white;
+            padding: 0;
+            cursor: pointer;
+        }
+
         .punto.activo {
-        background: #ffc107;
-        transform: translate(-50%, -50%) scale(1.3);
+            background: #ffc107;
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        #panel {
+            text-align: center;
+            margin-top: 15px;
+            padding-bottom: 30px;
         }
 
         #btn-aceptar {
@@ -52,6 +88,7 @@
             font-weight: bold;
             cursor: pointer;
         }
+
         #btn-aceptar:disabled {
             background: #555;
             color: #aaa;
@@ -67,98 +104,236 @@
             font-size: 18px;
             font-weight: bold;
             color: #ffc107;
-            font-variant-numeric: tabular-nums;
         }
+
         .btn-volver {
-            position: fixed;
-            top: 18px;
-            left: 18px;
+            display: inline-block;
+            margin: 15px;
             background: #282828;
             color: #0dcaf0;
             border: 1px solid #0dcaf0;
             border-radius: 6px;
             padding: 8px 14px;
             font-weight: bold;
-            cursor: pointer;
             text-decoration: none;
         }
     </style>
+
 </head>
+
 <body>
 
-    <a class="btn-volver" href="#" onclick="history.back(); return false;">← Volver</a>
+    <nav>
 
-    <nav style="text-align: center;">
-        <a style="padding: 15px; margin: 15px; font-size: 30px; color: white;" href="#"><b>Agencia De Entregas Planetarias</b></a>
-        <a style="padding: 15px; margin: 15px; font-size: 30px; color: white;" href="#"><b>Inicio</b></a>
-        <a style="padding: 15px; margin: 5px; font-size: 30px; color: white;" href="#"><b>Servicios</b></a>
+        <a href="Menu.html"><b>Agencia de Entregas Planetarias</b></a>
+
+        <a href="Menu.html">Inicio</a>
+
+        <a href="Servicios.html">Servicios</a>
+
     </nav>
 
+    <a class="btn-volver" href="Servicios.html">← Volver</a>
+
+
+    <div style="text-align: center; color: white; margin-top: 25px;">
+
+        <h2>Resumen de tu envío</h2>
+
+        <p>Tipo de envío: <span id="resumen-envio">...</span></p>
+
+        <p>Contenido: <span id="resumen-contenido">...</span></p>
+
+        <p>Precio estimado: $<span id="resumen-precio">...</span></p>
+
+        <hr style="border-color: #555; width: 80%; margin: 20px auto;">
+
+        <h3>Selecciona el continente de destino</h3>
+
+    </div>
+
     <div class="contenedor-pantalla">
+
         <div class="borde-mapa">
+
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0WO-0jpfEvKCV5BCPqSEzxjWqc7tGODt2MmVrfKytyQ&s=10">
 
-            <button class="punto" title="Sudamerica" data-nombre="Sudamerica" data-minutos="12" style="top: 70%; left: 20%;" type="button"></button>
+            <button class="punto"
+                title="Sudamérica"
+                data-nombre="Sudamérica"
+                data-minutos="12"
+                style="top:70%; left:20%;"
+                type="button">
+            </button>
 
-            <button class="punto" title="Africa" data-nombre="Africa" data-minutos="15" style="top: 40%; left: 45%;" type="button"></button>
+            <button class="punto"
+                title="África"
+                data-nombre="África"
+                data-minutos="15"
+                style="top:40%; left:45%;"
+                type="button">
+            </button>
 
-            <button class="punto" title="Asia" data-nombre="Europa" data-minutos="20" style="top: 20%; left: 42%;" type="button"></button>
+            <button class="punto"
+                title="Europa"
+                data-nombre="Europa"
+                data-minutos="20"
+                style="top:20%; left:42%;"
+                type="button">
+            </button>
 
-            <button class="punto" title="Norteamerica" data-nombre="Norteamerica" data-minutos="14" style="top: 35%; left: 11%;" type="button"></button>
+            <button class="punto"
+                title="Norteamérica"
+                data-nombre="Norteamérica"
+                data-minutos="14"
+                style="top:35%; left:11%;"
+                type="button">
+            </button>
 
-            <button class="punto" title="Asia" data-nombre="Asia" data-minutos="10" style="top: 28%; left: 65%;" type="button"></button>
+            <button class="punto"
+                title="Asia"
+                data-nombre="Asia"
+                data-minutos="10"
+                style="top:28%; left:65%;"
+                type="button">
+            </button>
 
         </div>
+
     </div>
-    <div id="panel" style="text-align: center; color: white; margin-top: 15px;">
-        <p>El envio ira a <span id="nombre-destino">...</span></p>
-        <button id="btn-aceptar" type="button">Aceptar</button><br>
-        <p id="temporizador">El paquete llegara en 12 minutos</p>
+
+    <div id="panel">
+
+        <p>
+            El envío irá a
+            <span id="nombre-destino">...</span>
+        </p>
+
+        <button id="btn-aceptar" type="button">
+            Aceptar
+        </button>
+
+        <br><br>
+
+        <p id="temporizador">
+            Selecciona un destino para continuar
+        </p>
+
     </div>
-<script src="script.js"></script>
-<script>
-    let minutosSeleccionados = 12;
-    let intervalo = null;
-    let enviado = false;
 
-    document.querySelectorAll('.punto').forEach(boton => {
-        boton.addEventListener('click', () => {
-            if (enviado) return;
-            document.querySelectorAll('.punto').forEach(p => p.classList.remove('activo'));
-            boton.classList.add('activo');
+    <script src="script.js"></script>
 
-            const lugar = boton.dataset.nombre || boton.title;
-            minutosSeleccionados = Number(boton.dataset.minutos) || 12;
-            document.getElementById('nombre-destino').innerText = lugar;
-        });
-    });
+    <script>
 
-    document.getElementById('btn-aceptar').addEventListener('click', () => {
-        if (enviado) return;
-        if (!verificarConfirmacionMapa()) return;
-        enviado = true;
-        document.getElementById('btn-aceptar').disabled = true;
+        let solicitud = JSON.parse(
+            localStorage.getItem("solicitudActual")
+        );
 
-        clearInterval(intervalo);
-        let segundosRestantes = minutosSeleccionados * 60;
+        if (solicitud) {
 
-        function actualizarTemporizador() {
-            const mins = Math.floor(segundosRestantes / 60);
-            const segs = segundosRestantes % 60;
-            const segsTexto = segs < 10 ? "0" + segs : segs;
-            document.getElementById('temporizador').innerText =
-                `El paquete llegara en ${mins}:${segsTexto} minutos`;
+            document.getElementById("resumen-envio").innerText =
+                solicitud.envio;
 
-            if (segundosRestantes <= 0) {
-                clearInterval(intervalo);
-                document.getElementById('temporizador').innerText = "El paquete ha llegado";
-            }
-            segundosRestantes--;
+            document.getElementById("resumen-contenido").innerText =
+                solicitud.contenido;
+
+            document.getElementById("resumen-precio").innerText =
+                solicitud.precio.toLocaleString("es-CL");
+
         }
 
-        actualizarTemporizador();
-        intervalo = setInterval(actualizarTemporizador, 1000);
-    });
-</script>
+
+        let minutosSeleccionados = 12;
+        let intervalo = null;
+        let enviado = false;
+        let destinoSeleccionado = "";
+
+        document.querySelectorAll(".punto").forEach(boton => {
+
+            boton.addEventListener("click", () => {
+
+                if (enviado) {
+                    return;
+                }
+
+                document.querySelectorAll(".punto").forEach(p => {
+                    p.classList.remove("activo");
+                });
+
+                boton.classList.add("activo");
+
+                destinoSeleccionado = boton.dataset.nombre;
+
+                minutosSeleccionados = Number(boton.dataset.minutos);
+
+                document.getElementById("nombre-destino").innerText =
+                    destinoSeleccionado;
+
+                document.getElementById("temporizador").innerText =
+                    "Destino seleccionado: " + destinoSeleccionado;
+
+            });
+
+        });
+
+        document.getElementById("btn-aceptar").addEventListener("click", () => {
+
+            if (enviado) {
+                return;
+            }
+
+            if (!destinoSeleccionado) {
+                alert("Debe seleccionar un continente.");
+                return;
+            }
+
+            if (!verificarConfirmacionMapa()) {
+                return;
+            }
+
+            enviado = true;
+
+
+            localStorage.setItem("destinoActual", destinoSeleccionado);
+
+            document.getElementById("btn-aceptar").disabled = true;
+
+            clearInterval(intervalo);
+
+            let segundosRestantes = minutosSeleccionados * 60;
+
+            function actualizarTemporizador() {
+
+                let mins = Math.floor(segundosRestantes / 60);
+
+                let segs = segundosRestantes % 60;
+
+                let segsTexto = segs < 10 ? "0" + segs : segs;
+
+                document.getElementById("temporizador").innerText =
+                    "El paquete llegará en " + mins + ":" + segsTexto;
+
+                if (segundosRestantes <= 0) {
+
+                    clearInterval(intervalo);
+
+                    document.getElementById("temporizador").innerText =
+                        "El paquete ha llegado a " + destinoSeleccionado;
+
+                    return;
+                }
+
+                segundosRestantes--;
+
+            }
+
+            actualizarTemporizador();
+
+            intervalo = setInterval(actualizarTemporizador, 1000);
+
+        });
+
+    </script>
+
 </body>
 </html>
