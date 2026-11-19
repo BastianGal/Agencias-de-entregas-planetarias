@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     verificarSesion();
     cargarEntregas();
@@ -27,15 +26,47 @@ function servicios() {
 }
 
 function confirmarEnvio() {
+
     let envio = document.getElementById("tipoEnvio").value;
     let contenido = document.getElementById("contenido").value;
 
     if (envio == "" || contenido == "") {
         alert("Debe seleccionar el tipo de envío y el contenido.");
-    } else {
-        localStorage.setItem('tipoContenido', contenido);
-        window.location.href = 'Mapa.html';
+        return;
     }
+
+    let precio = 0;
+
+    if (envio == "Normal") {
+        precio = 10000;
+    }
+    else if (envio == "Rápido") {
+        precio = 20000;
+    }
+    else if (envio == "Emergencia") {
+        precio = 35000;
+    }
+
+    if (contenido == "Frágil") {
+        precio = precio + 5000;
+    }
+
+    let solicitud = {
+        envio: envio,
+        contenido: contenido,
+        precio: precio,
+        fecha: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("solicitudActual", JSON.stringify(solicitud));
+
+    let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
+
+    solicitudes.push(solicitud);
+
+    localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
+
+    window.location.href = "Mapa.html";
 }
 
 function verificarConfirmacionMapa() {
