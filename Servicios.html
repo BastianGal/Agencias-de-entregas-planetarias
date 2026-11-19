@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +17,6 @@
             margin: 0;
             text-align: center;
             min-height: 100vh;
-
         }
 
         .contenedor {
@@ -28,31 +28,22 @@
             border-radius: 10px;
         }
 
-        nav 
-        {
+        nav {
             background-color: #333;
             padding: 20px;
         }
 
-        .navbar-brand  
-        {
+        .navbar-brand {
             font-weight: bold;
         }
 
-        .nav-link 
-        {
+        .nav-link {
             color: white;
             margin: 0 10px;
         }
 
-        .nav-link:hover 
-        {
+        .nav-link:hover {
             color: #80bfff;
-        }   
-
-        .navbar-brand 
-        {
-            font-weight: bold;
         }
 
         h1, h3 {
@@ -84,47 +75,47 @@
             color: white;
         }
     </style>
-
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark px-3">
+    <nav class="navbar navbar-expand-lg navbar-dark px-3">
 
-    <div class="container-fluid">
+        <div class="container-fluid">
 
-        <a class="navbar-brand" href="Menu.html">
-            Agencia de Entregas Planetarias
-        </a>
+            <a class="navbar-brand" href="Menu.html">
+                Agencia de Entregas Planetarias
+            </a>
 
-        <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menuNavegacion"
-            aria-controls="menuNavegacion"
-            aria-expanded="false"
-            aria-label="Abrir menú de navegación">
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuNavegacion"
+                aria-controls="menuNavegacion"
+                aria-expanded="false"
+                aria-label="Abrir menú de navegación">
 
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
 
-        </button>
+            </button>
 
-        <div class="collapse navbar-collapse" id="menuNavegacion">
+            <div class="collapse navbar-collapse" id="menuNavegacion">
 
-            <div class="navbar-nav ms-auto text-center">
+                <div class="navbar-nav ms-auto text-center">
 
-                <a class="nav-link" href="Menu.html">Inicio</a>
+                    <a class="nav-link" href="Menu.html">Inicio</a>
 
-                <a class="nav-link" href="Catalogo.html">Catálogo</a>
+                    <a class="nav-link" href="Catalogo.html">Catálogo</a>
 
-                <a class="nav-link" href="Servicios.html">Servicios</a>
+                    <a class="nav-link" href="Servicios.html">Servicios</a>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </nav>
 
-</nav>
     <div class="contenedor">
 
         <h1>Servicio de Envíos</h1>
@@ -149,12 +140,8 @@
         </select>
 
         <button type="button" onclick="confirmarEnvio()">
-            Realizar Envío
+            Seleccionar destino
         </button>
-
-        <div id="resultado" aria-live="polite"></div>
-
-        <hr>
 
         <button type="button" onclick="volverMenu()">
             Volver al menú
@@ -162,134 +149,8 @@
 
     </div>
 
-    <script>
-
-        function confirmarEnvio() {
-
-            let envio = document.getElementById("tipoEnvio").value;
-            let contenido = document.getElementById("contenido").value;
-
-            let resultado = document.getElementById("resultado");
-
-            if (envio == "" || contenido == "") {
-
-                alert("Debe seleccionar el tipo de envío y el contenido.");
-                return;
-
-            }
-
-            // Precios de demostración
-
-            let precio = 0;
-
-            if (envio == "Normal") {
-                precio = 10000;
-            }
-            else if (envio == "Rápido") {
-                precio = 20000;
-            }
-            else if (envio == "Emergencia") {
-                precio = 35000;
-            }
-
-            if (contenido == "Frágil") {
-                precio = precio + 5000;
-            }
-
-            // Crear solicitud
-
-            let solicitud = {
-                envio: envio,
-                contenido: contenido,
-                precio: precio,
-                fecha: new Date().toLocaleString()
-            };
-
-            // Recuperar solicitudes guardadas
-
-            let solicitudes = JSON.parse(
-                localStorage.getItem("solicitudes")
-            ) || [];
-
-            // Agregar nueva solicitud
-
-            solicitudes.push(solicitud);
-
-            // Guardar solicitudes
-
-            localStorage.setItem(
-                "solicitudes",
-                JSON.stringify(solicitudes)
-            );
-
-            // Mostrar resultado
-
-            resultado.innerHTML =
-                "<h3>Encargo registrado</h3>" +
-                "<p>Tipo de envío: " + envio + "</p>" +
-                "<p>Contenido: " + contenido + "</p>" +
-                "<p>Precio estimado: $" + precio.toLocaleString("es-CL") + "</p>" +
-                "<p>Fecha: " + solicitud.fecha + "</p>";
-
-        }
-
-        function volverMenu() {
-            window.location.href = "Menu.html";
-        }
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: white;
-            margin: 0;
-            text-align: center;
-            min-height: 100vh;
-
-        }
-
-        .contenedor {
-            background-color: #333;
-            width: 100%;
-            max-width: 450px;
-            margin: 40px auto;
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        nav 
-        {
-            background-color: #333;
-            padding: 20px;
-        }
-
-        nav 
-        {
-        background-color: #333;
-        padding: 20px;
-        }
-
-        .navbar-brand  
-        {
-        font-weight: bold;
-        }
-
-        .nav-link 
-        {
-        color: white;
-        margin: 0 10px;
-        }
-
-        .nav-link:hover 
-        {
-        color: #80bfff;
-        }   
-
-        .navbar-brand 
-        {
-            font-weight: bold;
-        }
